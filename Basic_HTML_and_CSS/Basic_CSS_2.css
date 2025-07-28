@@ -1,0 +1,8 @@
+/* Basic_CSS_2.css */
+.paragraph-style {
+    color: #222222;          
+    background-color: #f0f8ff; 
+    font-size: 1.1rem;       
+    text-align: justify;     
+    line-height: 1.6;        
+}
