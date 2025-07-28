@@ -1,0 +1,15 @@
+/* CSS_Lists.css */
+
+/* Unordered list styles */
+ul {
+    list-style-type: square;  
+    color: #333;
+    font-size: 18px;
+}
+
+/* Ordered list styles */
+ol {
+    list-style-type: upper-roman;  
+    color: #444;
+    font-size: 18px;
+}
