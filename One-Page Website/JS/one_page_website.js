@@ -99,12 +99,3 @@
     });
   });
 })();
-
-// right after creating img:
-img.addEventListener('error', () => {
-  const fallback = currentList[currentIndex];
-  if (fallback && img.src !== fallback.src) {
-    console.warn('Large image failed to load. Falling back to thumbnail:', img.src);
-    img.src = fallback.src;
-  }
-});
