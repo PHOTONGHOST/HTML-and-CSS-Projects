@@ -98,3 +98,80 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: #555;
 }
+
+/* Lightbox and the Responsive Gallery */ 
+
+/* --- Responsive gallery layout --- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* 4-across by default (you have 4 images) */
+.gallery img {
+  display: block;
+  width: calc(25% - 12px);     
+  height: auto;
+  margin: 0;                   
+  border: 3px solid var(--border);
+  border-radius: 6px;
+  cursor: zoom-in;             
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.gallery img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+/* If you ever use 3 images on a row, swap to: */
+/* .gallery img { width: calc(33.333% - 12px); } */
+
+/* 2 columns on tablets */
+@media (max-width: 900px) {
+  .gallery img { width: calc(50% - 12px); }
+}
+
+/* 1 column on small phones */
+@media (max-width: 480px) {
+  .gallery img { width: 100%; }
+}
+
+/* -- Accessible lightbox -- */
+#lightbox-modal {
+  position: fixed;
+  inset: 0;
+  display: none;               
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+}
+
+#lightbox-image {
+  max-width: 90vw;
+  max-height: 85vh;
+  box-shadow: 0 10px 40px rgba(0,0,0,.6);
+  border-radius: 6px;
+  background: #111;           
+}
+
+/* Close button inside the modal (inserted by JS) */
+#lightbox-modal button[aria-label="Close image"] {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 2px 8px rgba(0,0,0,.7);
+}
+
+/* prevent layout shift when modal open */
+html.modal-open { overflow: hidden; }
